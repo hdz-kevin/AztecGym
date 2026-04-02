@@ -4,8 +4,8 @@ namespace App\Enums;
 
 enum MemberGender: string
 {
-    case MALE = 'm';
-    case FEMALE = 'f';
+    case MALE = 'male';
+    case FEMALE = 'female';
 
     /**
      * @return string[]

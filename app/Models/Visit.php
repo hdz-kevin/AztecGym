@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+#[Fillable(['member_id', 'visit_type_id', 'visitor_name', 'visit_at', 'price_paid'])]
 class Visit extends Model
 {
     /**

@@ -15,10 +15,12 @@ return new class extends Migration
     {
         Schema::create('durations', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(MembershipType::class)->constrained()->onDelete('restrict');
+            $table->foreignIdFor(MembershipType::class)
+                ->constrained()
+                ->onDelete('cascade');
             $table->string('name');  // "Semanal", "Mensual", ...
             $table->unsignedSmallInteger('amount');  // 1, 2, 3, ...
-            $table->enum('unit', DurationUnit::values());  // day, week, month
+            $table->enum('unit', DurationUnit::values());
             $table->integer('price', unsigned: true);
             $table->timestamps();
         });

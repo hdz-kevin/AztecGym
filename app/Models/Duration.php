@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\DurationUnit;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -10,6 +11,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 #[Fillable(['membership_type_id', 'name', 'amount', 'unit', 'price'])]
 class Duration extends Model
 {
+    protected $casts = [
+        'unit' => DurationUnit::class,
+    ];
+
     /**
      * Get the membership type that the duration belongs to.
      */

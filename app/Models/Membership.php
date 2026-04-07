@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Attributes\Fillable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -11,6 +12,8 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 #[Fillable(['member_id', 'membership_type_id'])]
 class Membership extends Model
 {
+    use HasFactory;
+
     /**
      * Get the member that owns the membership.
      */
@@ -36,10 +39,18 @@ class Membership extends Model
     }
 
     /**
-     * Acceso directo al periodo más reciente (el activo o último).
+     * Get the most recent period of the membership.
      */
-    public function latestPeriod(): HasOne
+    public function lastPeriod(): HasOne
     {
-        return $this->hasOne(Period::class)->latestOfMany('end_date');
+        return $this->hasOne(Period::class)->latestOfMany();
+    }
+
+    /**
+     * Get the first period of the membership.
+     */
+    public function firstPeriod(): HasOne
+    {
+        return $this->hasOne(Period::class)->oldestOfMany();
     }
 }

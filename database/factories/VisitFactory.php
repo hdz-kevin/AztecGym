@@ -19,12 +19,12 @@ class VisitFactory extends Factory
      */
     public function definition(): array
     {
-        $member = rand(1, 10) <= 7 ? Member::factory() : null;
-        $visitType = VisitType::factory();
+        $member = rand(1, 10) <= 7 ? Member::inRandomOrder()->first() : null;
+        $visitType = VisitType::first();
 
         return [
             'member_id' => $member,
-            'visit_type_id' => $visitType,
+            'visit_type_id' => $visitType->id,
             'visitor_name' => $member ? null : $this->faker->name(),
             'visit_at' => $this->faker->dateTimeThisMonth(),
             'price_paid' => $visitType->price,

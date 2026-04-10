@@ -19,7 +19,7 @@ const { isCurrentUrl } = useCurrentUrl();
 
 <template>
     <SidebarGroup class="px-2 py-0">
-        <SidebarGroupLabel>Platform</SidebarGroupLabel>
+        <SidebarGroupLabel class="text-sm text-gray-700 dark:text-gray-300 mb-1">Principal</SidebarGroupLabel>
         <SidebarMenu>
             <SidebarMenuItem v-for="item in items" :key="item.title">
                 <SidebarMenuButton

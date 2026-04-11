@@ -10,3 +10,7 @@ export function cn(...inputs: ClassValue[]) {
 export function toUrl(href: NonNullable<InertiaLinkProps['href']>) {
     return typeof href === 'string' ? href : href?.url;
 }
+
+export function initials(name: string) {
+    return `${name.charAt(0)}${name.charAt(1)}`.toUpperCase();
+}

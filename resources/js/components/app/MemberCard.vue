@@ -12,7 +12,7 @@ defineProps<{ member: Member }>();
     <!-- Status Badge -->
     <div class="absolute top-4 right-4">
       <span class="inline-flex items-center rounded-full bg-green-100 px-3 py-0.5 text-sm font-medium text-green-800">
-        Activo
+        {{ member.status ?? 'Activo' }}
       </span>
     </div>
 
@@ -23,7 +23,7 @@ defineProps<{ member: Member }>();
           class="h-20 w-20 flex items-center justify-center overflow-hidden rounded-full border border-gray-200 bg-gray-100">
             <img
               v-if="member.photo"
-              :src="member.photo"
+              :src="`/storage/${member.photo}`"
               class="h-full w-full object-cover"
               alt="member image"
             />
@@ -58,7 +58,7 @@ defineProps<{ member: Member }>();
             <span>Membresía:</span>
           </div>
           <p class="ml-1.5 font-medium text-gray-800">
-            General
+            {{ member.current_membership?.membership_type.name ?? '---' }}
           </p>
         </div>
       </div>

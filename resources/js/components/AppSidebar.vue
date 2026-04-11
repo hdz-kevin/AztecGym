@@ -30,7 +30,7 @@ const mainNavItems: NavItem[] = [
     },
     {
         title: 'Socios',
-        href: '/',
+        href: '/members',
         icon: Users2,
     },
     {

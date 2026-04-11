@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 #[Fillable(['name', 'gender', 'birth_date', 'photo'])]
 class Member extends Model
@@ -37,12 +37,11 @@ class Member extends Model
     }
 
     /**
-     * Acceso directo a todos los periodos del socio
-     * a través de su membresía.
+     * Get the current (most recent) membership of the member.
      */
-    public function periods(): HasManyThrough
+    public function currentMembership(): HasOne
     {
-        return $this->hasManyThrough(Period::class, Membership::class);
+        return $this->hasOne(Membership::class)->latestOfMany();
     }
 
     /**

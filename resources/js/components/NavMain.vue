@@ -26,7 +26,7 @@ const { isCurrentUrl } = useCurrentUrl();
                     as-child
                     :is-active="isCurrentUrl(item.href)"
                     :tooltip="item.title"
-                    class="py-5 text-gray-800 data-[active=true]:text-gray-800 data-[active=true]:font-medium"
+                    class="py-5 text-gray-700 data-[active=true]:text-gray-800 data-[active=true]:font-medium"
                 >
                     <Link :href="item.href">
                         <component :is="item.icon" />

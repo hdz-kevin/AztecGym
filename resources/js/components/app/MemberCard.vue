@@ -39,7 +39,7 @@ defineProps<{ member: Member }>();
       </div>
 
       <!-- Card Body -->
-      <div class="space-y-5 py-3">
+      <div class="space-y-4 py-3">
         <!-- Code -->
         <div>
           <div class="mb-1 flex items-center gap-0.5 text-xs font-semibold tracking-wide text-gray-500 uppercase">

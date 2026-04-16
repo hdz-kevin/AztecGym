@@ -40,7 +40,7 @@ export const sidebarMenuButtonVariants = cva(
   {
     variants: {
       variant: {
-        default: "text-gray-800 font-medium hover:bg-indigo-50 hover:text-gray-900 data-[active=true]:bg-indigo-100 data-[active=true]:text-indigo-800",
+        default: "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
         outline:
           "bg-background shadow-[0_0_0_1px_hsl(var(--sidebar-border))] hover:bg-sidebar-accent hover:text-sidebar-accent-foreground hover:shadow-[0_0_0_1px_hsl(var(--sidebar-accent))]",
       },

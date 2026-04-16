@@ -15,16 +15,13 @@ defineOptions({
 	},
 });
 
-const props = defineProps<{
-	members: Member[];
-}>();
+defineProps<{ members: Member[] }>();
 </script>
 
 <template>
 
 	<Head title="Socios" />
 
-	<div class="p-4 h-full">
 		<div class="flex flex-1 flex-col gap-4 overflow-x-auto rounded-xl mb-5">
 			<div class="grid auto-rows-min gap-4 md:grid-cols-3">
 				<div
@@ -49,5 +46,4 @@ const props = defineProps<{
 				:key="member.id"
 			/>
 		</div>
-	</div>
 </template>
